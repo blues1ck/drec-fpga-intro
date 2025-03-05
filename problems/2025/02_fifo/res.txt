@@ -1,0 +1,11 @@
+Time =                    0, data_in = 00, data_out = 00, full = 0, empty = 1
+Time =                10000, data_in = 11, data_out = 00, full = 0, empty = 1
+Time =                15000, data_in = 11, data_out = 00, full = 0, empty = 0
+Time =                20000, data_in = 22, data_out = 00, full = 0, empty = 0
+Time =                30000, data_in = 33, data_out = 00, full = 0, empty = 0
+Time =                45000, data_in = 33, data_out = 11, full = 0, empty = 0
+data_out = 11, full = 0, empty = 0
+Time =                55000, data_in = 33, data_out = 22, full = 0, empty = 0
+data_out = 22, full = 0, empty = 0
+Time =                65000, data_in = 33, data_out = 33, full = 0, empty = 0
+data_out = 33, full = 0, empty = 0

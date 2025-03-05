@@ -1,0 +1,10 @@
+Time =                    0, q = 01
+Time =                25000, q = 02
+Time =                35000, q = 04
+Time =                45000, q = 08
+Time =                55000, q = 10
+Time =                65000, q = 21
+Time =                75000, q = 43
+Time =                85000, q = 87
+Time =                95000, q = 0f
+Time =               105000, q = 1e
