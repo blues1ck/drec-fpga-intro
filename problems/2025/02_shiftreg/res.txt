@@ -1,0 +1,4 @@
+Time =                    0, data_out = 0
+Time =                25000, data_out = 1
+Time =                35000, data_out = 0
+Time =                45000, data_out = 1
