@@ -1,0 +1,9 @@
+# Назначение пинов
+set_location_assignment PIN_T22  -to CLK     # Пин тактового сигнала
+set_location_assignment PIN_U20  -to RSTN    # Пин кнопки сброса
+set_location_assignment PIN_AB16 -to LED[0]  # Пин светодиода
+
+# Параметры проекта
+set_global_assignment -name DEVICE EP4CE15F23C8
+set_global_assignment -name TOP_LEVEL_ENTITY fpga_top
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"

@@ -1,0 +1,21 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LED[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "RSTN",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

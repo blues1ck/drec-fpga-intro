@@ -1,0 +1,17 @@
+# Project-Wide Assignments
+set_global_assignment -name VERILOG_FILE fpga_top.v
+set_global_assignment -name VERILOG_FILE blink.v
+set_global_assignment -name SDC_FILE fpga.sdc
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output
+# Analysis & Synthesis Assignments
+set_global_assignment -name SYNTH_MESSAGE_LEVEL HIGH
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name TOP_LEVEL_ENTITY fpga_top
+# Pin & Location Assignments
+set_location_assignment PIN_T22  -to CLK
+set_location_assignment PIN_U20  -to RSTN
+set_location_assignment PIN_AB16 -to LED[0]
+# Fitter Assignments
+set_global_assignment -name DEVICE EP4CE15F23C8
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS INPUT TRI-STATED"
