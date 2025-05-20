@@ -1,0 +1,8 @@
+
+State Machine - |top|uart_rx:uart_rx_inst|state
+Name state.RX_STOP_BIT state.RX_DATA_BITS state.RX_START_BIT state.IDLE state.CLEANUP 
+state.IDLE 0 0 0 0 0 
+state.RX_START_BIT 0 0 1 1 0 
+state.RX_DATA_BITS 0 1 0 1 0 
+state.RX_STOP_BIT 1 0 0 1 0 
+state.CLEANUP 0 0 0 1 1 
