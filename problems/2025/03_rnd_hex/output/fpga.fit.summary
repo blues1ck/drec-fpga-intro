@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed May 21 22:27:08 2025
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : fpga
+Top-level Entity Name : fpga_top
+Family : Cyclone IV E
+Device : EP4CE15F23C8
+Timing Models : Final
+Total logic elements : 100 / 15,408 ( < 1 % )
+    Total combinational functions : 92 / 15,408 ( < 1 % )
+    Dedicated logic registers : 56 / 15,408 ( < 1 % )
+Total registers : 56
+Total pins : 6 / 344 ( 2 % )
+Total virtual pins : 0
+Total memory bits : 0 / 516,096 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 112 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

@@ -1,0 +1,858 @@
+Analysis & Synthesis report for fpga
+Wed May 21 19:46:17 2025
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. User-Specified and Inferred Latches
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256|altsyncram:altsyncram_component|altsyncram_9mc1:auto_generated
+ 14. Source assignments for system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256|altsyncram:altsyncram_component|altsyncram_01j1:auto_generated
+ 15. Parameter Settings for User Entity Instance: system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256
+ 16. Parameter Settings for User Entity Instance: system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256|altsyncram:altsyncram_component
+ 17. Parameter Settings for User Entity Instance: system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256|altsyncram:altsyncram_component
+ 18. Parameter Settings for User Entity Instance: system_top:system_top|cpu_top:cpu_top|mem_xbar:mem_xbar
+ 19. Parameter Settings for User Entity Instance: system_top:system_top|hex_display:hex_display
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "system_top:system_top|cpu_top:cpu_top|dmem:dmem"
+ 22. Port Connectivity Checks: "system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256"
+ 23. Port Connectivity Checks: "system_top:system_top|cpu_top:cpu_top|imem:imem"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+ 27. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed May 21 19:46:17 2025          ;
+; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                      ; fpga                                           ;
+; Top-level Entity Name              ; fpga_top                                       ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 3,629                                          ;
+;     Total combinational functions  ; 2,635                                          ;
+;     Dedicated logic registers      ; 1,092                                          ;
+; Total registers                    ; 1092                                           ;
+; Total pins                         ; 6                                              ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 16,384                                         ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE15F23C8       ;                    ;
+; Top-level entity name                                            ; fpga_top           ; fpga               ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Maximum processors allowed for parallel compilation              ; All                ;                    ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                           ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                             ; Library ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------+---------+
+; src/fpga_top.v                   ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/fpga_top.v            ;         ;
+; src/system_top.v                 ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/system_top.v          ;         ;
+; src/dmem.v                       ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/dmem.v                ;         ;
+; src/regfile.v                    ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/regfile.v             ;         ;
+; src/mem_xbar.v                   ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/mem_xbar.v            ;         ;
+; src/imem.v                       ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/imem.v                ;         ;
+; src/cpu_top.v                    ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/cpu_top.v             ;         ;
+; src/core.v                       ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/core.v                ;         ;
+; src/control.v                    ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v             ;         ;
+; src/cmp.v                        ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/cmp.v                 ;         ;
+; src/alu.v                        ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/alu.v                 ;         ;
+; src/lsu.v                        ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/lsu.v                 ;         ;
+; src/hex_display.v                ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/hex_display.v         ;         ;
+; src/mmio_xbar.v                  ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/mmio_xbar.v           ;         ;
+; src/ctrl_74hc595.v               ; yes             ; User Verilog HDL File                  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/ctrl_74hc595.v        ;         ;
+; src/altera/ram1rw32x256.v        ; yes             ; User Wizard-Generated File             ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/altera/ram1rw32x256.v ;         ;
+; src/altera/imem1r32x256.v        ; yes             ; User Wizard-Generated File             ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/altera/imem1r32x256.v ;         ;
+; src/config.vh                    ; yes             ; Auto-Found Unspecified File            ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/config.vh             ;         ;
+; src/lsu.vh                       ; yes             ; Auto-Found Unspecified File            ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/lsu.vh                ;         ;
+; src/cmp.vh                       ; yes             ; Auto-Found Unspecified File            ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/cmp.vh                ;         ;
+; src/alu.vh                       ; yes             ; Auto-Found Unspecified File            ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/alu.vh                ;         ;
+; src/core.vh                      ; yes             ; Auto-Found Unspecified File            ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/core.vh               ;         ;
+; src/instr.vh                     ; yes             ; Auto-Found Unspecified File            ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh              ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; /home/ilya/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf         ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; /home/ilya/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc  ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; /home/ilya/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc            ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; /home/ilya/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc         ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                           ; /home/ilya/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc         ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; /home/ilya/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc          ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; /home/ilya/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/altrom.inc             ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; /home/ilya/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/altram.inc             ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; /home/ilya/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc           ;         ;
+; db/altsyncram_9mc1.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/db/altsyncram_9mc1.tdf    ;         ;
+; samples/fib_fpga.mif             ; yes             ; Auto-Found Memory Initialization File  ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/samples/fib_fpga.mif      ;         ;
+; db/altsyncram_01j1.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/db/altsyncram_01j1.tdf    ;         ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 3,629     ;
+;                                             ;           ;
+; Total combinational functions               ; 2635      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 1979      ;
+;     -- 3 input functions                    ; 519       ;
+;     -- <=2 input functions                  ; 137       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 2435      ;
+;     -- arithmetic mode                      ; 200       ;
+;                                             ;           ;
+; Total registers                             ; 1092      ;
+;     -- Dedicated logic registers            ; 1092      ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 6         ;
+; Total memory bits                           ; 16384     ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 1156      ;
+; Total fan-out                               ; 13784     ;
+; Average fan-out                             ; 3.62      ;
++---------------------------------------------+-----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                 ;
++----------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                ; Entity Name     ; Library Name ;
++----------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |fpga_top                                          ; 2635 (0)            ; 1092 (2)                  ; 16384       ; 0            ; 0       ; 0         ; 6    ; 0            ; |fpga_top                                                                                                                                          ; fpga_top        ; work         ;
+;    |system_top:system_top|                         ; 2635 (0)            ; 1090 (0)                  ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top                                                                                                                    ; system_top      ; work         ;
+;       |cpu_top:cpu_top|                            ; 2585 (0)            ; 1055 (0)                  ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top                                                                                                    ; cpu_top         ; work         ;
+;          |core:core|                               ; 2570 (318)          ; 1055 (31)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core                                                                                          ; core            ; work         ;
+;             |alu:alu|                              ; 687 (687)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|alu:alu                                                                                  ; alu             ; work         ;
+;             |cmp:cmp|                              ; 85 (85)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|cmp:cmp                                                                                  ; cmp             ; work         ;
+;             |control:control|                      ; 84 (84)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|control:control                                                                          ; control         ; work         ;
+;             |lsu:lsu|                              ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|lsu:lsu                                                                                  ; lsu             ; work         ;
+;             |regfile:regfile|                      ; 1392 (1392)         ; 1024 (1024)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|regfile:regfile                                                                          ; regfile         ; work         ;
+;          |dmem:dmem|                               ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|dmem:dmem                                                                                          ; dmem            ; work         ;
+;             |ram1rw32x256:ram1rw32x256|            ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256                                                                ; ram1rw32x256    ; work         ;
+;                |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
+;                   |altsyncram_01j1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256|altsyncram:altsyncram_component|altsyncram_01j1:auto_generated ; altsyncram_01j1 ; work         ;
+;          |imem:imem|                               ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|imem:imem                                                                                          ; imem            ; work         ;
+;             |imem1r32x256:imem1r32x256|            ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256                                                                ; imem1r32x256    ; work         ;
+;                |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
+;                   |altsyncram_9mc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256|altsyncram:altsyncram_component|altsyncram_9mc1:auto_generated ; altsyncram_9mc1 ; work         ;
+;          |mem_xbar:mem_xbar|                       ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|cpu_top:cpu_top|mem_xbar:mem_xbar                                                                                  ; mem_xbar        ; work         ;
+;       |ctrl_74hc595:ctrl_74hc595|                  ; 15 (15)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|ctrl_74hc595:ctrl_74hc595                                                                                          ; ctrl_74hc595    ; work         ;
+;       |hex_display:hex_display|                    ; 29 (29)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|hex_display:hex_display                                                                                            ; hex_display     ; work         ;
+;       |mmio_xbar:mmio_xbar|                        ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fpga_top|system_top:system_top|mmio_xbar:mmio_xbar                                                                                                ; mmio_xbar       ; work         ;
++----------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                   ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------------+
+; Name                                                                                                                                                ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                  ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------------+
+; system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256|altsyncram:altsyncram_component|altsyncram_01j1:auto_generated|ALTSYNCRAM ; M9K  ; Single Port ; 256          ; 32           ; --           ; --           ; 8192 ; None                 ;
+; system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256|altsyncram:altsyncram_component|altsyncram_9mc1:auto_generated|ALTSYNCRAM ; M9K  ; ROM         ; 256          ; 32           ; --           ; --           ; 8192 ; samples/fib_fpga.mif ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                           ;
++--------+--------------+---------+--------------+--------------+-------------------------------------------------------------------------------------+---------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                                     ; IP Include File           ;
++--------+--------------+---------+--------------+--------------+-------------------------------------------------------------------------------------+---------------------------+
+; Altera ; RAM: 1-PORT  ; 23.1    ; N/A          ; N/A          ; |fpga_top|system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256 ; src/altera/ram1rw32x256.v ;
+; Altera ; ROM: 1-PORT  ; 23.1    ; N/A          ; N/A          ; |fpga_top|system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256 ; src/altera/imem1r32x256.v ;
++--------+--------------+---------+--------------+--------------+-------------------------------------------------------------------------------------+---------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                                                               ;
++------------------------------------------------------------------------------+---------------------------------------------------------------------------+------------------------+
+; Latch Name                                                                   ; Latch Enable Signal                                                       ; Free of Timing Hazards ;
++------------------------------------------------------------------------------+---------------------------------------------------------------------------+------------------------+
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_lsu_op[1]  ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_alusel1[0] ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_alusel1[1] ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_alusel2[0] ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_alusel2[1] ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_aluop[1]   ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_aluop[2]   ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_aluop[0]   ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_aluop[3]   ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_lsu_op[0]  ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_wb_sel[0]  ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_wb_sel[1]  ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_lsu_op[2]  ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_wb_en      ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_branch     ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_cmpop[0]   ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_cmpop[1]   ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_cmpop[2]   ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_jump       ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_load       ; system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor24 ; yes                    ;
+; Number of user-specified and inferred latches = 20                           ;                                                                           ;                        ;
++------------------------------------------------------------------------------+---------------------------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1092  ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 12    ;
+; Number of registers using Asynchronous Clear ; 66    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1062  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
+; 1:1                ; 2 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|mem_xbar:mem_xbar|o_data[15] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |fpga_top|system_top:system_top|hex_display:hex_display|Mux1                 ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|Mux24              ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|Mux27              ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|Mux18              ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|Mux1               ;
+; 4:1                ; 27 bits   ; 54 LEs        ; 54 LEs               ; 0 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|Mux48              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|Mux63              ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|Mux61              ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|o_instr_addr[2]    ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|Mux93              ;
+; 14:1               ; 7 bits    ; 63 LEs        ; 49 LEs               ; 14 LEs                 ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|alu:alu|Mux8       ;
+; 13:1               ; 8 bits    ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|alu:alu|Mux17      ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|Mux73              ;
+; 15:1               ; 4 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|alu:alu|Mux5       ;
+; 14:1               ; 4 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|alu:alu|Mux27      ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|Mux87              ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|Mux83              ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 18 LEs               ; 2 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|alu:alu|Mux2       ;
+; 15:1               ; 2 bits    ; 20 LEs        ; 14 LEs               ; 6 LEs                  ; No         ; |fpga_top|system_top:system_top|cpu_top:cpu_top|core:core|alu:alu|Mux29      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256|altsyncram:altsyncram_component|altsyncram_9mc1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                                                ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                                 ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256|altsyncram:altsyncram_component|altsyncram_01j1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                                                ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                                 ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256 ;
++----------------+----------------------+--------------------------------------------------------------------------------+
+; Parameter Name ; Value                ; Type                                                                           ;
++----------------+----------------------+--------------------------------------------------------------------------------+
+; INIT_FILE_MIF  ; samples/fib_fpga.mif ; String                                                                         ;
++----------------+----------------------+--------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+--------------------------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                                       ;
++------------------------------------+----------------------+--------------------------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                                    ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                                                 ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                                               ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                                               ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                                             ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                                    ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                                                                    ;
+; WIDTH_A                            ; 32                   ; Signed Integer                                                                             ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                                                             ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                                                             ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                                    ;
+; ADDRESS_ACLR_A                     ; CLEAR0               ; Untyped                                                                                    ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                                    ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                                    ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                                    ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                                    ;
+; WIDTH_B                            ; 1                    ; Untyped                                                                                    ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                                                    ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                                                    ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                                                    ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                                                    ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                                                    ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                                                    ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                                    ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                                    ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                                    ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                                    ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                                    ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                                    ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                                    ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                                    ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                                             ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                                                    ;
+; RAM_BLOCK_TYPE                     ; M9K                  ; Untyped                                                                                    ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                                    ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                                                    ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                                    ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                                    ;
+; INIT_FILE                          ; samples/fib_fpga.mif ; Untyped                                                                                    ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                                    ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                                    ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                                                    ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                                                    ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                                                    ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                                                    ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                                    ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                                    ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                                    ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                                    ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                                    ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                                                                    ;
+; CBXI_PARAMETER                     ; altsyncram_9mc1      ; Untyped                                                                                    ;
++------------------------------------+----------------------+--------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+--------------------------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                                       ;
++------------------------------------+----------------------+--------------------------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                                    ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                                                 ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                                               ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                                               ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                                             ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                                    ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                                                                    ;
+; WIDTH_A                            ; 32                   ; Signed Integer                                                                             ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                                                             ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                                                             ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                                    ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                                    ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                                    ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                                    ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                                    ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                                    ;
+; WIDTH_B                            ; 1                    ; Untyped                                                                                    ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                                                    ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                                                    ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                                                    ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                                                    ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                                                    ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                                                    ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                                    ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                                    ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                                    ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                                    ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                                    ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                                    ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                                    ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                                    ;
+; WIDTH_BYTEENA_A                    ; 4                    ; Signed Integer                                                                             ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                                                    ;
+; RAM_BLOCK_TYPE                     ; M9K                  ; Untyped                                                                                    ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer                                                                             ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                                                    ;
+; READ_DURING_WRITE_MODE_PORT_A      ; DONT_CARE            ; Untyped                                                                                    ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                                    ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                                                    ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                                    ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                                    ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                                                    ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                                                    ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                                                    ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                                                    ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                                    ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                                    ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                                    ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                                    ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                                    ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                                                                    ;
+; CBXI_PARAMETER                     ; altsyncram_01j1      ; Untyped                                                                                    ;
++------------------------------------+----------------------+--------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: system_top:system_top|cpu_top:cpu_top|mem_xbar:mem_xbar ;
++----------------+--------------------------------+----------------------------------------------------+
+; Parameter Name ; Value                          ; Type                                               ;
++----------------+--------------------------------+----------------------------------------------------+
+; DATA_START     ; 000000000000000000010000000000 ; Unsigned Binary                                    ;
+; DATA_LIMIT     ; 000000000000000011111111111111 ; Unsigned Binary                                    ;
+; MMIO_START     ; 000000000000000000000000000000 ; Unsigned Binary                                    ;
+; MMIO_LIMIT     ; 000000000000000000001111111111 ; Unsigned Binary                                    ;
++----------------+--------------------------------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: system_top:system_top|hex_display:hex_display ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; CNT_WIDTH      ; 14    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                                      ;
++-------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                                                     ;
++-------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                                                         ;
+; Entity Instance                           ; system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                                                       ;
+;     -- WIDTH_A                            ; 32                                                                                                        ;
+;     -- NUMWORDS_A                         ; 256                                                                                                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                              ;
+;     -- WIDTH_B                            ; 1                                                                                                         ;
+;     -- NUMWORDS_B                         ; 1                                                                                                         ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                                    ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                              ;
+;     -- RAM_BLOCK_TYPE                     ; M9K                                                                                                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                                 ;
+; Entity Instance                           ; system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                                                               ;
+;     -- WIDTH_A                            ; 32                                                                                                        ;
+;     -- NUMWORDS_A                         ; 256                                                                                                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                              ;
+;     -- WIDTH_B                            ; 1                                                                                                         ;
+;     -- NUMWORDS_B                         ; 1                                                                                                         ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                                    ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                              ;
+;     -- RAM_BLOCK_TYPE                     ; M9K                                                                                                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                                 ;
++-------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "system_top:system_top|cpu_top:cpu_top|dmem:dmem"                                                                                                                                    ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                            ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; i_addr ; Input ; Warning  ; Input port expression (30 bits) is wider than the input port (8 bits) it drives.  The 22 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256" ;
++----------------+-------+----------+-------------------------------------------------------------------+
+; Port           ; Type  ; Severity ; Details                                                           ;
++----------------+-------+----------+-------------------------------------------------------------------+
+; addressstall_a ; Input ; Info     ; Stuck at GND                                                      ;
++----------------+-------+----------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "system_top:system_top|cpu_top:cpu_top|imem:imem"                                                                                                                                    ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                            ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; i_addr ; Input ; Warning  ; Input port expression (30 bits) is wider than the input port (8 bits) it drives.  The 22 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 6                           ;
+; cycloneiii_ff         ; 1092                        ;
+;     CLR               ; 28                          ;
+;     ENA               ; 1024                        ;
+;     ENA CLR           ; 26                          ;
+;     ENA CLR SLD       ; 12                          ;
+;     plain             ; 2                           ;
+; cycloneiii_lcell_comb ; 2636                        ;
+;     arith             ; 200                         ;
+;         2 data inputs ; 43                          ;
+;         3 data inputs ; 157                         ;
+;     normal            ; 2436                        ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 89                          ;
+;         3 data inputs ; 362                         ;
+;         4 data inputs ; 1979                        ;
+; cycloneiii_ram_block  ; 64                          ;
+;                       ;                             ;
+; Max LUT depth         ; 21.00                       ;
+; Average LUT depth     ; 16.69                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:07     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Wed May 21 19:46:01 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fpga -c fpga
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file src/fpga_top.v
+    Info (12023): Found entity 1: fpga_top File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/fpga_top.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file src/system_top.v
+    Info (12023): Found entity 1: system_top File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/system_top.v Line: 3
+Warning (12019): Can't analyze file -- file src/mux4.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file src/dmem.v
+    Info (12023): Found entity 1: dmem File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/dmem.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file src/regfile.v
+    Info (12023): Found entity 1: regfile File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/regfile.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file src/mem_xbar.v
+    Info (12023): Found entity 1: mem_xbar File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/mem_xbar.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file src/imem.v
+    Info (12023): Found entity 1: imem File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/imem.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file src/cpu_top.v
+    Info (12023): Found entity 1: cpu_top File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/cpu_top.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file src/core.v
+    Info (12023): Found entity 1: core File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/core.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file src/control.v
+    Info (12023): Found entity 1: control File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file src/cmp.v
+    Info (12023): Found entity 1: cmp File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/cmp.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file src/alu.v
+    Info (12023): Found entity 1: alu File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/alu.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file src/lsu.v
+    Info (12023): Found entity 1: lsu File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/lsu.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file src/hex_display.v
+    Info (12023): Found entity 1: hex_display File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/hex_display.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file src/mmio_xbar.v
+    Info (12023): Found entity 1: mmio_xbar File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/mmio_xbar.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file src/ctrl_74hc595.v
+    Info (12023): Found entity 1: ctrl_74hc595 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/ctrl_74hc595.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file src/altera/ram1rw32x256.v
+    Info (12023): Found entity 1: ram1rw32x256 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/altera/ram1rw32x256.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file src/altera/imem1r32x256.v
+    Info (12023): Found entity 1: imem1r32x256 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/altera/imem1r32x256.v Line: 40
+Info (12127): Elaborating entity "fpga_top" for the top level hierarchy
+Info (12128): Elaborating entity "system_top" for hierarchy "system_top:system_top" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/fpga_top.v Line: 27
+Info (12128): Elaborating entity "cpu_top" for hierarchy "system_top:system_top|cpu_top:cpu_top" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/system_top.v Line: 33
+Info (12128): Elaborating entity "imem" for hierarchy "system_top:system_top|cpu_top:cpu_top|imem:imem" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/cpu_top.v Line: 35
+Info (12128): Elaborating entity "imem1r32x256" for hierarchy "system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/imem.v Line: 42
+Info (12128): Elaborating entity "altsyncram" for hierarchy "system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256|altsyncram:altsyncram_component" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/altera/imem1r32x256.v Line: 90
+Info (12130): Elaborated megafunction instantiation "system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256|altsyncram:altsyncram_component" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/altera/imem1r32x256.v Line: 90
+Info (12133): Instantiated megafunction "system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256|altsyncram:altsyncram_component" with the following parameter: File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/altera/imem1r32x256.v Line: 90
+    Info (12134): Parameter "address_aclr_a" = "CLEAR0"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "samples/fib_fpga.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "ram_block_type" = "M9K"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9mc1.tdf
+    Info (12023): Found entity 1: altsyncram_9mc1 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/db/altsyncram_9mc1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_9mc1" for hierarchy "system_top:system_top|cpu_top:cpu_top|imem:imem|imem1r32x256:imem1r32x256|altsyncram:altsyncram_component|altsyncram_9mc1:auto_generated" File: /home/ilya/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "dmem" for hierarchy "system_top:system_top|cpu_top:cpu_top|dmem:dmem" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/cpu_top.v Line: 44
+Info (12128): Elaborating entity "ram1rw32x256" for hierarchy "system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/dmem.v Line: 50
+Info (12128): Elaborating entity "altsyncram" for hierarchy "system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256|altsyncram:altsyncram_component" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/altera/ram1rw32x256.v Line: 89
+Info (12130): Elaborated megafunction instantiation "system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256|altsyncram:altsyncram_component" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/altera/ram1rw32x256.v Line: 89
+Info (12133): Instantiated megafunction "system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256|altsyncram:altsyncram_component" with the following parameter: File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/altera/ram1rw32x256.v Line: 89
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "M9K"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "DONT_CARE"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "4"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_01j1.tdf
+    Info (12023): Found entity 1: altsyncram_01j1 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/db/altsyncram_01j1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_01j1" for hierarchy "system_top:system_top|cpu_top:cpu_top|dmem:dmem|ram1rw32x256:ram1rw32x256|altsyncram:altsyncram_component|altsyncram_01j1:auto_generated" File: /home/ilya/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "mem_xbar" for hierarchy "system_top:system_top|cpu_top:cpu_top|mem_xbar:mem_xbar" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/cpu_top.v Line: 69
+Info (12128): Elaborating entity "core" for hierarchy "system_top:system_top|cpu_top:cpu_top|core:core" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/cpu_top.v Line: 81
+Info (12128): Elaborating entity "alu" for hierarchy "system_top:system_top|cpu_top:cpu_top|core:core|alu:alu" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/core.v Line: 134
+Info (12128): Elaborating entity "cmp" for hierarchy "system_top:system_top|cpu_top:cpu_top|core:core|cmp:cmp" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/core.v Line: 141
+Warning (10230): Verilog HDL assignment warning at cmp.v(19): truncated value with size 32 to match size of target (1) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/cmp.v Line: 19
+Info (12128): Elaborating entity "regfile" for hierarchy "system_top:system_top|cpu_top:cpu_top|core:core|regfile:regfile" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/core.v Line: 152
+Info (12128): Elaborating entity "lsu" for hierarchy "system_top:system_top|cpu_top:cpu_top|core:core|lsu:lsu" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/core.v Line: 166
+Warning (10230): Verilog HDL assignment warning at lsu.v(27): truncated value with size 40 to match size of target (32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/lsu.v Line: 27
+Warning (10230): Verilog HDL assignment warning at lsu.v(30): truncated value with size 40 to match size of target (32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/lsu.v Line: 30
+Info (12128): Elaborating entity "control" for hierarchy "system_top:system_top|cpu_top:cpu_top|core:core|control:control" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/core.v Line: 181
+Warning (10230): Verilog HDL assignment warning at control.v(28): truncated value with size 7 to match size of target (5) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 28
+Warning (10199): Verilog HDL Case Statement warning at instr.vh(32): case item expression never matches the case expression File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 32
+Warning (10199): Verilog HDL Case Statement warning at instr.vh(35): case item expression never matches the case expression File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 35
+Warning (10199): Verilog HDL Case Statement warning at instr.vh(41): case item expression never matches the case expression File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 41
+Warning (10240): Verilog HDL Always Construct warning at control.v(32): inferring latch(es) for variable "o_aluop", which holds its previous value in one or more paths through the always construct File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Warning (10240): Verilog HDL Always Construct warning at control.v(32): inferring latch(es) for variable "o_alusel1", which holds its previous value in one or more paths through the always construct File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Warning (10240): Verilog HDL Always Construct warning at control.v(32): inferring latch(es) for variable "o_alusel2", which holds its previous value in one or more paths through the always construct File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Warning (10240): Verilog HDL Always Construct warning at control.v(32): inferring latch(es) for variable "o_cmpop", which holds its previous value in one or more paths through the always construct File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Warning (10240): Verilog HDL Always Construct warning at control.v(32): inferring latch(es) for variable "o_branch", which holds its previous value in one or more paths through the always construct File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Warning (10240): Verilog HDL Always Construct warning at control.v(32): inferring latch(es) for variable "o_jump", which holds its previous value in one or more paths through the always construct File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Warning (10240): Verilog HDL Always Construct warning at control.v(32): inferring latch(es) for variable "o_wb_sel", which holds its previous value in one or more paths through the always construct File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Warning (10240): Verilog HDL Always Construct warning at control.v(32): inferring latch(es) for variable "o_wb_en", which holds its previous value in one or more paths through the always construct File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Warning (10240): Verilog HDL Always Construct warning at control.v(32): inferring latch(es) for variable "o_load", which holds its previous value in one or more paths through the always construct File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Warning (10240): Verilog HDL Always Construct warning at control.v(32): inferring latch(es) for variable "o_store", which holds its previous value in one or more paths through the always construct File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Warning (10240): Verilog HDL Always Construct warning at control.v(32): inferring latch(es) for variable "o_lsu_op", which holds its previous value in one or more paths through the always construct File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_lsu_op[0]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_lsu_op[1]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_lsu_op[2]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_store" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_load" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_wb_en" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_wb_sel[0]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_wb_sel[1]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_jump" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_branch" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_cmpop[0]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_cmpop[1]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_cmpop[2]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_alusel2[0]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_alusel2[1]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_alusel1[0]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_alusel1[1]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_aluop[0]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_aluop[1]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_aluop[2]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (10041): Inferred latch for "o_aluop[3]" at control.v(32) File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+Info (12128): Elaborating entity "mmio_xbar" for hierarchy "system_top:system_top|mmio_xbar:mmio_xbar" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/system_top.v Line: 44
+Info (12128): Elaborating entity "hex_display" for hierarchy "system_top:system_top|hex_display:hex_display" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/system_top.v Line: 53
+Info (12128): Elaborating entity "ctrl_74hc595" for hierarchy "system_top:system_top|ctrl_74hc595:ctrl_74hc595" File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/system_top.v Line: 63
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "system_top:system_top|cpu_top:cpu_top|core:core|regfile:regfile|r" is uninferred due to asynchronous read logic File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/regfile.v Line: 15
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_lsu_op[1] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor12 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 16
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_alusel1[0] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor3 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 5
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_alusel1[1] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor2 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 4
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_alusel2[0] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor15 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 20
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_alusel2[1] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor3 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 5
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_aluop[1] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor19 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 25
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_aluop[2] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor20 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 26
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_aluop[0] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor19 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 25
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_aluop[3] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor22 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 28
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_lsu_op[0] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor11 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 15
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_wb_sel[0] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor1 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 2
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_wb_sel[1] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor2 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 4
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_lsu_op[2] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor14 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 18
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_wb_en has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor4 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 7
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_branch has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor4 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 7
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_cmpop[0] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor5 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 8
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_cmpop[1] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor6 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 9
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_cmpop[2] has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor8 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 11
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_jump has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor2 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 4
+Warning (13012): Latch system_top:system_top|cpu_top:cpu_top|core:core|control:control|o_load has unsafe behavior File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/control.v Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal system_top:system_top|cpu_top:cpu_top|core:core|control:control|WideNor10 File: /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/src/instr.vh Line: 14
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/output/fpga.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3768 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 4 output pins
+    Info (21061): Implemented 3698 logic cells
+    Info (21064): Implemented 64 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 60 warnings
+    Info: Peak virtual memory: 414 megabytes
+    Info: Processing ended: Wed May 21 19:46:17 2025
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:28
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/ilya/Desktop/baikal/drec-fpga-intro/problems/2025/06_cpu/output/fpga.map.smsg.
+
+
