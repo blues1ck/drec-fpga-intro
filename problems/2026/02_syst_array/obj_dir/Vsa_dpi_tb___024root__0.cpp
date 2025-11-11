@@ -70,7 +70,7 @@ VlCoroutine Vsa_dpi_tb___024root___eval_initial__TOP__Vtiming__0(Vsa_dpi_tb___02
     vlSelfRef.sa_dpi_tb__DOT__i_c[1U] = 0U;
     vlSelfRef.sa_dpi_tb__DOT__i_c[2U] = 0U;
     vlSelfRef.sa_dpi_tb__DOT__i_c[3U] = 0U;
-    vlSelfRef.sa_dpi_tb__DOT__i_c_vld = 0x0fU;
+    vlSelfRef.sa_dpi_tb__DOT__i_c_vld = 0U;
     sa_dpi_tb__DOT__unnamedblk5__DOT__unnamedblk1_1__DOT____Vrepeat0 = 5U;
     while (VL_LTS_III(32, 0U, sa_dpi_tb__DOT__unnamedblk5__DOT__unnamedblk1_1__DOT____Vrepeat0)) {
         co_await vlSelfRef.__VtrigSched_h268bff67__0.trigger(0U, 
@@ -216,6 +216,7 @@ VlCoroutine Vsa_dpi_tb___024root___eval_initial__TOP__Vtiming__0(Vsa_dpi_tb___02
         [3U][3U];
     vlSelfRef.sa_dpi_tb__DOT__collected[3U][3U] = 0U;
     vlSelfRef.sa_dpi_tb__DOT__expected[3U][3U] = 0U;
+    VL_WRITEF_NX("[TB] Generated matrices A and B, starting DPI reference...\n",0);
     Vsa_dpi_tb___024root____Vdpiimwrap_sa_dpi_tb__DOT__matmul_ref__Vdpioc2_TOP(4U, vlSelfRef.sa_dpi_tb__DOT__a_flat, vlSelfRef.sa_dpi_tb__DOT__b_flat, __Vtask_sa_dpi_tb__DOT__matmul_ref__Vdpioc2__1__c_flat);
     vlSelfRef.sa_dpi_tb__DOT__ref_flat[0U] = __Vtask_sa_dpi_tb__DOT__matmul_ref__Vdpioc2__1__c_flat
         [0U];
@@ -255,6 +256,7 @@ VlCoroutine Vsa_dpi_tb___024root___eval_initial__TOP__Vtiming__0(Vsa_dpi_tb___02
     vlSelfRef.sa_dpi_tb__DOT__ref_flat[0x0000000fU] 
         = __Vtask_sa_dpi_tb__DOT__matmul_ref__Vdpioc2__1__c_flat
         [0x0000000fU];
+    VL_WRITEF_NX("[TB] Reference ready, streaming data into DUT\n",0);
     vlSelfRef.sa_dpi_tb__DOT__expected[0U][0U] = vlSelfRef.sa_dpi_tb__DOT__ref_flat
         [0U];
     vlSelfRef.sa_dpi_tb__DOT__expected[0U][1U] = vlSelfRef.sa_dpi_tb__DOT__ref_flat
@@ -401,7 +403,10 @@ VlCoroutine Vsa_dpi_tb___024root___eval_initial__TOP__Vtiming__0(Vsa_dpi_tb___02
                                                              nullptr, 
                                                              "@(posedge sa_dpi_tb.clk)", 
                                                              "tb/sa_dpi_tb.sv", 
-                                                             143);
+                                                             145);
+        VL_WRITEF_NX("[TB] cycle %0t: fed column %0d\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,32,
+                     sa_dpi_tb__DOT__unnamedblk5__DOT__unnamedblk10__DOT__k);
         sa_dpi_tb__DOT__unnamedblk5__DOT__unnamedblk10__DOT__k 
             = ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__unnamedblk10__DOT__k);
     }
@@ -415,12 +420,15 @@ VlCoroutine Vsa_dpi_tb___024root___eval_initial__TOP__Vtiming__0(Vsa_dpi_tb___02
         vlSelfRef.sa_dpi_tb__DOT__i_c[1U] = 0U;
         vlSelfRef.sa_dpi_tb__DOT__i_c[2U] = 0U;
         vlSelfRef.sa_dpi_tb__DOT__i_c[3U] = 0U;
-        vlSelfRef.sa_dpi_tb__DOT__i_c_vld = 0x0fU;
+        vlSelfRef.sa_dpi_tb__DOT__i_c_vld = 0U;
         co_await vlSelfRef.__VtrigSched_h268bff67__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(posedge sa_dpi_tb.clk)", 
                                                              "tb/sa_dpi_tb.sv", 
-                                                             149);
+                                                             152);
+        VL_WRITEF_NX("[TB] cycle %0t: flushing (%0d/12)\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,32,
+                     ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__unnamedblk11__DOT__f));
         sa_dpi_tb__DOT__unnamedblk5__DOT__unnamedblk11__DOT__f 
             = ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__unnamedblk11__DOT__f);
     }
@@ -429,210 +437,276 @@ VlCoroutine Vsa_dpi_tb___024root___eval_initial__TOP__Vtiming__0(Vsa_dpi_tb___02
                                                              nullptr, 
                                                              "@( (32'h10 <= sa_dpi_tb.total_collected))", 
                                                              "tb/sa_dpi_tb.sv", 
-                                                             152);
+                                                             156);
     }
+    VL_WRITEF_NX("[TB] cycle %0t: collected %0d / 16 results\n",0,
+                 64,VL_TIME_UNITED_Q(1000),-9,32,vlSelfRef.sa_dpi_tb__DOT__total_collected);
     sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 0U;
+    VL_WRITEF_NX("[TB] C[0][0] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [0U][0U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [0U][0U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [0U][0U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [0U][0U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[0][0]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[0][0]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [0U][0U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [0U][0U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[0][1] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [0U][1U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [0U][1U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [0U][1U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [0U][1U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[0][1]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[0][1]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [0U][1U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [0U][1U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[0][2] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [0U][2U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [0U][2U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [0U][2U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [0U][2U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[0][2]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[0][2]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [0U][2U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [0U][2U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[0][3] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [0U][3U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [0U][3U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [0U][3U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [0U][3U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[0][3]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[0][3]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [0U][3U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [0U][3U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[1][0] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [1U][0U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [1U][0U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [1U][0U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [1U][0U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[1][0]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[1][0]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [1U][0U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [1U][0U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[1][1] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [1U][1U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [1U][1U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [1U][1U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [1U][1U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[1][1]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[1][1]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [1U][1U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [1U][1U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[1][2] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [1U][2U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [1U][2U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [1U][2U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [1U][2U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[1][2]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[1][2]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [1U][2U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [1U][2U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[1][3] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [1U][3U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [1U][3U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [1U][3U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [1U][3U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[1][3]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[1][3]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [1U][3U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [1U][3U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[2][0] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [2U][0U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [2U][0U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [2U][0U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [2U][0U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[2][0]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[2][0]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [2U][0U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [2U][0U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[2][1] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [2U][1U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [2U][1U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [2U][1U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [2U][1U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[2][1]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[2][1]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [2U][1U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [2U][1U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[2][2] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [2U][2U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [2U][2U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [2U][2U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [2U][2U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[2][2]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[2][2]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [2U][2U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [2U][2U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[2][3] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [2U][3U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [2U][3U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [2U][3U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [2U][3U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[2][3]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[2][3]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [2U][3U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [2U][3U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[3][0] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [3U][0U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [3U][0U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [3U][0U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [3U][0U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[3][0]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[3][0]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [3U][0U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [3U][0U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[3][1] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [3U][1U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [3U][1U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [3U][1U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [3U][1U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[3][1]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[3][1]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [3U][1U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [3U][1U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[3][2] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [3U][2U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [3U][2U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [3U][2U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [3U][2U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[3][2]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[3][2]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [3U][2U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [3U][2U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
+    VL_WRITEF_NX("[TB] C[3][3] = %0d (expected %0d)\n",0,
+                 32,vlSelfRef.sa_dpi_tb__DOT__collected
+                 [3U][3U],32,vlSelfRef.sa_dpi_tb__DOT__expected
+                 [3U][3U]);
     if (VL_UNLIKELY(((vlSelfRef.sa_dpi_tb__DOT__collected
                       [3U][3U] != vlSelfRef.sa_dpi_tb__DOT__expected
                       [3U][3U])))) {
-        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:158: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[3][3]: got %0d, expected %0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Error: sa_dpi_tb.sv:164: Assertion failed in %Nsa_dpi_tb.unnamedblk5.unnamedblk12.unnamedblk13: Mismatch at C[3][3]: got %0d, expected %0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,vlSelfRef.sa_dpi_tb__DOT__collected
                      [3U][3U],32,vlSelfRef.sa_dpi_tb__DOT__expected
                      [3U][3U]);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 158, "");
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 164, "");
         sa_dpi_tb__DOT__unnamedblk5__DOT__errors = 
             ((IData)(1U) + sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
     }
     if (VL_LIKELY(((0U == sa_dpi_tb__DOT__unnamedblk5__DOT__errors)))) {
         VL_WRITEF_NX("PASS: systolic array produced correct 4x4 matrix multiply results.\n",0);
     } else {
-        VL_WRITEF_NX("[%0t] %%Fatal: sa_dpi_tb.sv:167: Assertion failed in %Nsa_dpi_tb.unnamedblk5: FAIL: systolic array had %0d mismatches\n",0,
+        VL_WRITEF_NX("[%0t] %%Fatal: sa_dpi_tb.sv:173: Assertion failed in %Nsa_dpi_tb.unnamedblk5: FAIL: systolic array had %0d mismatches\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      32,sa_dpi_tb__DOT__unnamedblk5__DOT__errors);
-        VL_STOP_MT("tb/sa_dpi_tb.sv", 167, "", false);
+        VL_STOP_MT("tb/sa_dpi_tb.sv", 173, "", false);
     }
-    VL_FINISH_MT("tb/sa_dpi_tb.sv", 170, "");
+    VL_FINISH_MT("tb/sa_dpi_tb.sv", 176, "");
 }
 
 VlCoroutine Vsa_dpi_tb___024root___eval_initial__TOP__Vtiming__1(Vsa_dpi_tb___024root* vlSelf) {

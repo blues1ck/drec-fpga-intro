@@ -91,7 +91,7 @@ module sa_dpi_tb;
         i_b      = '{default: '0};
         i_b_we   = '{default: 1'b0};
         i_c      = '{default: '0};
-        i_c_vld  = '{default: 1'b1};
+        i_c_vld  = '{default: 1'b0};
     endtask
 
     task automatic drive_iteration(input int k);
@@ -107,6 +107,17 @@ module sa_dpi_tb;
             i_b_we[c] = 1'b1;
         end
     endtask
+
+    function void display_matrix(string name, int m [SIZE][SIZE]);
+        $display("[TB] %s:", name);
+        for (int r = 0; r < SIZE; ++r) begin
+            string line = "";
+            for (int c = 0; c < SIZE; ++c) begin
+                line = {line, $sformatf("%4d", m[r][c])};
+            end
+            $display("[TB]   %s", line);
+        end
+    endfunction
 
     // Main stimulus
     initial begin
@@ -131,6 +142,8 @@ module sa_dpi_tb;
             end
         end
 
+        display_matrix("A", a_matrix);
+        display_matrix("B", b_matrix);
         $display("[TB] Generated matrices A and B, starting DPI reference...");
         matmul_ref(SIZE, a_flat, b_flat, ref_flat);
         $display("[TB] Reference ready, streaming data into DUT");
@@ -166,6 +179,10 @@ module sa_dpi_tb;
                 end
             end
         end
+
+        display_matrix("Result C", collected);
+        display_matrix("Reference C", expected);
+        $display("[TB] To double-check in Python, paste matrices A and B into e.g. numpy.matmul(A,B)");
 
         if (errors == 0) begin
             $display("PASS: systolic array produced correct 4x4 matrix multiply results.");
