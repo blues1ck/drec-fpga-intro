@@ -5,20 +5,19 @@
 // The class here is then constructed to instantiate the design.
 // See the Verilator manual for examples.
 
-#ifndef VERILATED_VSA_DPI_TB_H_
-#define VERILATED_VSA_DPI_TB_H_  // guard
+#ifndef VERILATED_VSA_TOP_TB_H_
+#define VERILATED_VSA_TOP_TB_H_  // guard
 
 #include "verilated.h"
-#include "svdpi.h"
 
-class Vsa_dpi_tb__Syms;
-class Vsa_dpi_tb___024root;
+class Vsa_top_tb__Syms;
+class Vsa_top_tb___024root;
 
 // This class is the main interface to the Verilated model
-class alignas(VL_CACHE_LINE_BYTES) Vsa_dpi_tb VL_NOT_FINAL : public VerilatedModel {
+class alignas(VL_CACHE_LINE_BYTES) Vsa_top_tb VL_NOT_FINAL : public VerilatedModel {
   private:
     // Symbol table holding complete model state (owned by this class)
-    Vsa_dpi_tb__Syms* const vlSymsp;
+    Vsa_top_tb__Syms* const vlSymsp;
 
   public:
 
@@ -36,19 +35,19 @@ class alignas(VL_CACHE_LINE_BYTES) Vsa_dpi_tb VL_NOT_FINAL : public VerilatedMod
 
     // Root instance pointer to allow access to model internals,
     // including inlined /* verilator public_flat_* */ items.
-    Vsa_dpi_tb___024root* const rootp;
+    Vsa_top_tb___024root* const rootp;
 
     // CONSTRUCTORS
     /// Construct the model; called by application code
     /// If contextp is null, then the model will use the default global context
     /// If name is "", then makes a wrapper with a
     /// single model invisible with respect to DPI scope names.
-    explicit Vsa_dpi_tb(VerilatedContext* contextp, const char* name = "TOP");
-    explicit Vsa_dpi_tb(const char* name = "TOP");
+    explicit Vsa_top_tb(VerilatedContext* contextp, const char* name = "TOP");
+    explicit Vsa_top_tb(const char* name = "TOP");
     /// Destroy the model; called (often implicitly) by application code
-    virtual ~Vsa_dpi_tb();
+    virtual ~Vsa_top_tb();
   private:
-    VL_UNCOPYABLE(Vsa_dpi_tb);  ///< Copying not allowed
+    VL_UNCOPYABLE(Vsa_top_tb);  ///< Copying not allowed
 
   public:
     // API METHODS

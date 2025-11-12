@@ -2,7 +2,7 @@
 // DESCRIPTION: main() calling loop, created with Verilator --main
 
 #include "verilated.h"
-#include "Vsa_dpi_tb.h"
+#include "Vsa_top_tb.h"
 
 //======================
 
@@ -13,7 +13,7 @@ int main(int argc, char** argv, char**) {
     contextp->commandArgs(argc, argv);
 
     // Construct the Verilated model, from Vtop.h generated from Verilating
-    const std::unique_ptr<Vsa_dpi_tb> topp{new Vsa_dpi_tb{contextp.get(), ""}};
+    const std::unique_ptr<Vsa_top_tb> topp{new Vsa_top_tb{contextp.get(), ""}};
 
     // Simulate until $finish
     while (VL_LIKELY(!contextp->gotFinish())) {

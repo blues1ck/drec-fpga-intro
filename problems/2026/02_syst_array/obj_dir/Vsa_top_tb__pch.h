@@ -3,11 +3,11 @@
 //
 // Internal details; most user sources do not need this header,
 // unless using verilator public meta comments.
-// Suggest use Vsa_dpi_tb.h instead.
+// Suggest use Vsa_top_tb.h instead.
 
 
-#ifndef VERILATED_VSA_DPI_TB__PCH_H_
-#define VERILATED_VSA_DPI_TB__PCH_H_  // guard
+#ifndef VERILATED_VSA_TOP_TB__PCH_H_
+#define VERILATED_VSA_TOP_TB__PCH_H_  // guard
 
 // GCC and Clang only will precompile headers (PCH) for the first header.
 // So, make sure this is the one and only PCH.
@@ -19,10 +19,9 @@
 
 
 #include "verilated.h"
-#include "verilated_dpi.h"
 
-#include "Vsa_dpi_tb__Syms.h"
-#include "Vsa_dpi_tb.h"
+#include "Vsa_top_tb__Syms.h"
+#include "Vsa_top_tb.h"
 
 // Additional include files added using '--compiler-include'
 

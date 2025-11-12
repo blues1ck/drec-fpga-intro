@@ -39,30 +39,19 @@ module pe #(
                 b_reg <= i_b;
             end
 
-            // pass B further down the column so that every PE sees the same load pulse
-            o_b    <= i_b;
-            o_b_we <= i_b_we;
-
-            // propagate A horizontally
+            // propagate streams
             o_a     <= i_a;
             o_a_vld <= i_a_vld;
+            o_b     <= i_b;
+            o_b_we  <= i_b_we;
 
-            // output accumulation
-            unique case ({i_a_vld, i_c_vld})
-                2'b11: begin
-                    o_c     <= i_c + i_a * b_reg;
-                    o_c_vld <= 1'b1;
-                end
-                2'b01: begin
-                    // no new A this cycle – just forward the partial sum further
-                    o_c     <= i_c;
-                    o_c_vld <= 1'b1;
-                end
-                default: begin
-                    o_c_vld <= 1'b0;
-                    // retain previous o_c value to avoid X-optimism
-                end
-            endcase
+            if (i_a_vld && i_c_vld) begin
+                o_c     <= i_c + i_a * b_reg;
+                o_c_vld <= i_c_vld;
+            end else begin
+                o_c     <= i_c;
+                o_c_vld <= i_c_vld;
+            end
         end
     end
 

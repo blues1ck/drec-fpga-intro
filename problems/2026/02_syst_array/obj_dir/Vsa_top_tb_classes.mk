@@ -2,7 +2,7 @@
 # DESCRIPTION: Verilator output: Make include file with class lists
 #
 # This file lists generated Verilated files, for including in higher level makefiles.
-# See Vsa_dpi_tb.mk for the caller.
+# See Vsa_top_tb.mk for the caller.
 
 ### Switches...
 # C11 constructs required?  0/1 (always on now)
@@ -25,27 +25,25 @@ VM_TRACE_VCD = 0
 ### Object file lists...
 # Generated module classes, fast-path, compile with highest optimization
 VM_CLASSES_FAST += \
-  Vsa_dpi_tb \
-  Vsa_dpi_tb___024root__0 \
-  Vsa_dpi_tb__main \
+  Vsa_top_tb \
+  Vsa_top_tb___024root__0 \
+  Vsa_top_tb__main \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
-  Vsa_dpi_tb___024root__Slow \
-  Vsa_dpi_tb___024root__0__Slow \
+  Vsa_top_tb___024root__Slow \
+  Vsa_top_tb___024root__0__Slow \
 
 # Generated support classes, fast-path, compile with highest optimization
 VM_SUPPORT_FAST += \
-  Vsa_dpi_tb__Dpi \
 
 # Generated support classes, non-fast-path, compile with low/medium optimization
 VM_SUPPORT_SLOW += \
-  Vsa_dpi_tb__Syms \
+  Vsa_top_tb__Syms \
 
 # Global classes, need linked once per executable, fast-path, compile with highest optimization
 VM_GLOBAL_FAST += \
   verilated \
-  verilated_dpi \
   verilated_timing \
   verilated_threads \
 
