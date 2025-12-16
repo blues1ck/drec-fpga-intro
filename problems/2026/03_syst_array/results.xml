@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1765902564" />
+    <testcase name="test_idle" classname="sa_credit_top_tb" file="/Users/ilya/Desktop/baikal/drec-fpga-intro/problems/2026/03_syst_array/sa_credit_top_tb.py" lineno="30" time="0.0011303424835205078" sim_time_ns="89.0" ratio_time="78737.19805948112" />
+    <testcase name="test_backpressure" classname="sa_credit_top_tb" file="/Users/ilya/Desktop/baikal/drec-fpga-intro/problems/2026/03_syst_array/sa_credit_top_tb.py" lineno="47" time="0.0006411075592041016" sim_time_ns="49.0" ratio_time="76430.23280029751" />
+    <testcase name="test_normal" classname="sa_credit_top_tb" file="/Users/ilya/Desktop/baikal/drec-fpga-intro/problems/2026/03_syst_array/sa_credit_top_tb.py" lineno="60" time="0.0003979206085205078" sim_time_ns="26.0" ratio_time="65339.66686638706" />
+  </testsuite>
+</testsuites>

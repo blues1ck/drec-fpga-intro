@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1765905775" />
+    <testcase name="test_one_run" classname="sa_axi_top_tb" file="/Users/ilya/Desktop/baikal/drec-fpga-intro/problems/2026/05_syst_array/sa_axi_top_tb.py" lineno="166" time="0.007238864898681641" sim_time_ns="530.0" ratio_time="73215.89882089454" />
+    <testcase name="test_multiple_runs" classname="sa_axi_top_tb" file="/Users/ilya/Desktop/baikal/drec-fpga-intro/problems/2026/05_syst_array/sa_axi_top_tb.py" lineno="176" time="0.011741161346435547" sim_time_ns="1420.0" ratio_time="120942.0395565122" />
+  </testsuite>
+</testsuites>
