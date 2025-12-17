@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo "=== Linux with mul-dev starting ==="
+
+# Mount essential filesystems
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t devtmpfs devtmpfs /dev
+
+echo ""
+
+echo ""
+
+exec /bin/sh
