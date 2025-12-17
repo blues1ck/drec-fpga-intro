@@ -1,0 +1,31 @@
+--- a/hw/arm/virt.c
++++ b/hw/arm/virt.c
+@@ -XX,XX +XX,XX @@
+ #include "hw/arm/virt.h"
+ #include "hw/arm/boot.h"
+ #include "sysemu/device_tree.h"
++#include "hw/misc/mul_dev.h"
+ 
+ // ... existing code ...
+ 
+@@ -XX,XX +XX,XX @@ static void create_mmio_regions(VirtMachineState *vms)
+     // ... existing code ...
+ }
+ 
++static void create_mul_dev(VirtMachineState *vms)
++{
++    DeviceState *dev = qdev_new(TYPE_MUL_DEV);
++    SysBusDevice *sbd = SYS_BUS_DEVICE(dev);
++    
++    /* Place mul-dev at base address 0x09000000 */
++    sysbus_realize_and_unref(sbd, &error_fatal);
++    sysbus_mmio_map(sbd, 0, 0x09000000);
++}
++
+ static void machvirt_init(MachineState *machine)
+ {
+     // ... existing code ...
++    create_mul_dev(vms);
+     // ... existing code ...
+ }
+
