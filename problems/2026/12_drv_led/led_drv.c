@@ -3,8 +3,10 @@
 #include <linux/module.h>
 #include <linux/uaccess.h>
 #include <linux/io.h>
+#include <linux/ioport.h>
 #include <linux/of.h>
 #include <linux/platform_device.h>
+#include <linux/sizes.h>
 
 static void __iomem *base;
 
@@ -40,11 +42,21 @@ static struct miscdevice led_miscdev = {
 static int led_probe(struct platform_device *pdev)
 {
 	struct device *dev = &pdev->dev;
+	struct resource *res;
+	resource_size_t map_size = SZ_4K;
 	int ret;
 
-	base = devm_platform_ioremap_resource(pdev, 0);
-	if (IS_ERR(base))
-		return PTR_ERR(base);
+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+	if (!res)
+		return -ENODEV;
+
+	/*
+	 * Some generated DTs expose an oversized MMIO length for this IP.
+	 * We only need a tiny register window, so map one page from base.
+	 */
+	base = devm_ioremap(dev, res->start, map_size);
+	if (!base)
+		return -ENOMEM;
 
 	dev_info(dev, "mapped register at %px\n", base);
 	led_miscdev.parent = dev;
@@ -60,6 +72,8 @@ static int led_probe(struct platform_device *pdev)
 }
 
 static const struct of_device_id led_dt_match[] = {
+	{ .compatible = "xlnx,axil2reg-1.0" },
+	{ .compatible = "drec-fpga-intro,axil-led" },
 	{ .compatible = "drec-fpga-intro,led-dev" },
 	{},
 };

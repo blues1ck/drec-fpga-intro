@@ -3,6 +3,7 @@ set_property target_language Verilog [current_project]
 
 add_files -norecurse src/axil2reg_wr.sv
 add_files -norecurse src/syst_array_axil.sv
+add_files -norecurse src/syst_array_axil_wrapper.v
 update_compile_order -fileset sources_1
 
 create_bd_design "design_1" -dir fpga
@@ -28,7 +29,7 @@ set_property -dict [list \
 ] [get_bd_cells axi_protocol_convert_0]
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_0
-create_bd_cell -type module -reference syst_array_axil syst_array_axil_0
+create_bd_cell -type module -reference syst_array_axil_wrapper syst_array_axil_0
 
 connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins axi_protocol_convert_0/aclk]
 connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK]

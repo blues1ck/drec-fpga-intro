@@ -10,6 +10,9 @@ foreach src_file [list \
     ./src/axil2reg.sv] {
     add_files -fileset sources_1 -norecurse $src_file
 }
+# IP Integrator module reference requires Verilog/VHDL top source type.
+# axil2reg.sv uses plain Verilog syntax, so force its file type.
+set_property file_type Verilog [get_files ./src/axil2reg.sv]
 update_compile_order -fileset sources_1
 
 create_bd_design $bd_name -dir $proj_dir

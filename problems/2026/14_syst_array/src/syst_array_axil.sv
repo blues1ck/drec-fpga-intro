@@ -43,17 +43,19 @@ assign s_axil_rvalid = s_axil_arvalid;
 
 always_comb begin
     int idx;
+    logic [7:0] ar_off;
     s_axil_rdata = '0;
-    if (s_axil_araddr[7:0] == 8'h00) begin
+    ar_off = s_axil_araddr[7:0];
+    if (ar_off == 8'h00) begin
         s_axil_rdata = {30'b0, done, 1'b0};
-    end else if (s_axil_araddr[7:4] == 4'h1) begin
-        idx = s_axil_araddr[5:2];
+    end else if (ar_off >= 8'h10 && ar_off <= 8'h4C) begin
+        idx = (ar_off - 8'h10) >> 2;
         if (idx < NUM) s_axil_rdata = a_reg[idx];
-    end else if (s_axil_araddr[7:4] == 4'h5) begin
-        idx = s_axil_araddr[5:2];
+    end else if (ar_off >= 8'h50 && ar_off <= 8'h8C) begin
+        idx = (ar_off - 8'h50) >> 2;
         if (idx < NUM) s_axil_rdata = b_reg[idx];
-    end else if (s_axil_araddr[7:4] == 4'h9) begin
-        idx = s_axil_araddr[5:2];
+    end else if (ar_off >= 8'h90 && ar_off <= 8'hCC) begin
+        idx = (ar_off - 8'h90) >> 2;
         if (idx < NUM) s_axil_rdata = c_reg[idx];
     end
 end
@@ -100,14 +102,19 @@ always_ff @(posedge clk or negedge rst_n) begin
     end else begin
         reg_wr_okay <= 1'b0;
         if (reg_wr_en) begin
+            int wr_idx;
+            logic [7:0] wr_off;
             reg_wr_okay <= 1'b1;
-            if (reg_wr_addr[7:4] == 4'h1) begin
-                if (reg_wr_addr[5:2] < NUM)
-                    a_reg[reg_wr_addr[5:2]] <= reg_wr_data;
-            end else if (reg_wr_addr[7:4] == 4'h5) begin
-                if (reg_wr_addr[5:2] < NUM)
-                    b_reg[reg_wr_addr[5:2]] <= reg_wr_data;
-            end else if (reg_wr_addr[7:0] == 8'h00 && reg_wr_data[0]) begin
+            wr_off = reg_wr_addr[7:0];
+            if (wr_off >= 8'h10 && wr_off <= 8'h4C) begin
+                wr_idx = (wr_off - 8'h10) >> 2;
+                if (wr_idx < NUM)
+                    a_reg[wr_idx] <= reg_wr_data;
+            end else if (wr_off >= 8'h50 && wr_off <= 8'h8C) begin
+                wr_idx = (wr_off - 8'h50) >> 2;
+                if (wr_idx < NUM)
+                    b_reg[wr_idx] <= reg_wr_data;
+            end else if (wr_off == 8'h00 && reg_wr_data[0]) begin
                 done <= 1'b0;
                 for (i = 0; i < N; i = i + 1) begin
                     for (j = 0; j < N; j = j + 1) begin
