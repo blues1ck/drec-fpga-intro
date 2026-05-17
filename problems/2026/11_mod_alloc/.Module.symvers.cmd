@@ -1,0 +1,1 @@
+savedcmd_/home/ilya/drec-fpga-intro/problems/2026/11_mod_alloc/Module.symvers :=  scripts/mod/modpost -M -m       -o /home/ilya/drec-fpga-intro/problems/2026/11_mod_alloc/Module.symvers -T /home/ilya/drec-fpga-intro/problems/2026/11_mod_alloc/modules.order -i Module.symvers -e 

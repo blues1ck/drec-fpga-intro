@@ -1,0 +1,107 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Fri May 15 15:32:08 2026
+# Process ID         : 35961
+# Current directory  : /home/ilya/drec-fpga-intro/problems/2026/09_ps7_axil_led
+# Command line       : vivado -mode batch -source project.tcl
+# Log file           : /home/ilya/drec-fpga-intro/problems/2026/09_ps7_axil_led/vivado.log
+# Journal file       : /home/ilya/drec-fpga-intro/problems/2026/09_ps7_axil_led/vivado.jou
+# Running On         : ilya-B550-GAMING-X-V2
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 22.04.5 LTS
+# Processor Detail   : AMD Ryzen 5 5600G with Radeon Graphics
+# CPU Frequency      : 400.000 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16622 MB
+# Swap memory        : 0 MB
+# Total Virtual      : 16622 MB
+# Available Virtual  : 13725 MB
+#-----------------------------------------------------------
+source project.tcl
+# set proj_dir "./fpga"
+# set bd_name "design_1"
+# create_project fpga $proj_dir -part xc7z020clg400-2
+# set_property target_language Verilog [current_project]
+# foreach src_file [list \
+#     ./src/axil2reg_rd.sv \
+#     ./src/axil2reg_wr.sv \
+#     ./src/axil2reg.sv] {
+#     add_files -fileset sources_1 -norecurse $src_file
+# }
+# set_property file_type Verilog [get_files ./src/axil2reg.sv]
+# update_compile_order -fileset sources_1
+# create_bd_design design_1 -dir ./fpga
+Wrote  : </home/ilya/drec-fpga-intro/problems/2026/09_ps7_axil_led/fpga/design_1/design_1.bd> 
+# create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0
+# set_property -dict [list \
+#     CONFIG.PCW_EN_CLK0_PORT {1} \
+#     CONFIG.PCW_EN_RST0_PORT {1} \
+#     CONFIG.PCW_PRESET_BANK1_VOLTAGE {LVCMOS 1.8V} \
+#     CONFIG.PCW_SD0_PERIPHERAL_ENABLE {1} \
+#     CONFIG.PCW_SD0_SD0_IO {MIO 40 .. 45} \
+#     CONFIG.PCW_UART1_PERIPHERAL_ENABLE {1} \
+#     CONFIG.PCW_UART1_UART1_IO {MIO 48 .. 49} \
+#     CONFIG.PCW_UIPARAM_DDR_BUS_WIDTH {16 Bit} \
+#     CONFIG.PCW_UIPARAM_DDR_PARTNO {MT41J256M16 RE-125} \
+#     CONFIG.PCW_USE_M_AXI_GP0 {1}] [get_bd_cells processing_system7_0]
+# apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 \
+#     -config {make_external "FIXED_IO, DDR" Master "Disable" Slave "Disable"} \
+#     [get_bd_cells processing_system7_0]
+# create_bd_cell -type module -reference axil2reg axil2reg_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axil' of definition 'xilinx.com:interface:aximm:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst_n' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'rst_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 's_axil'.
+INFO: [IP_Flow 19-818] Not transferring value dependency attribute "(spirit:decode(id('MODELPARAM_VALUE.DATA_WIDTH')) / 8)" into user parameter "STRB_WIDTH".
+WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+# set_property -dict [list CONFIG.DATA_WIDTH {32} CONFIG.ADDR_WIDTH {32}] [get_bd_cells axil2reg_0]
+# create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 const_ok
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+# set_property CONFIG.CONST_VAL {1} [get_bd_cells const_ok]
+# connect_bd_net [get_bd_pins const_ok/dout] [get_bd_pins axil2reg_0/reg_wr_okay]
+# connect_bd_net [get_bd_pins const_ok/dout] [get_bd_pins axil2reg_0/reg_rd_okay]
+# create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 const_zero32
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+# set_property -dict [list CONFIG.CONST_VAL {0} CONFIG.CONST_WIDTH {32}] [get_bd_cells const_zero32]
+# connect_bd_net [get_bd_pins const_zero32/dout] [get_bd_pins axil2reg_0/reg_rd_data]
+# create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 led_slice
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilslice:1.0 for the IP type xilinx.com:ip:xlslice:1.0 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlslice:1.0 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+# set_property -dict [list CONFIG.DIN_WIDTH {32} CONFIG.DIN_FROM {3} CONFIG.DIN_TO {0} CONFIG.DOUT_WIDTH {4}] [get_bd_cells led_slice]
+# create_bd_cell -type ip -vlnv xilinx.com:ip:axi_protocol_converter:2.1 axi_protocol_convert_0
+# set_property -dict [list CONFIG.MI_PROTOCOL {AXI4LITE} CONFIG.SI_PROTOCOL {AXI3} CONFIG.TRANSLATION_MODE {2}] [get_bd_cells axi_protocol_convert_0]
+# create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_0
+# create_bd_port -dir O -from 3 -to 0 -type data led
+# connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins axi_protocol_convert_0/aclk]
+# connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins axil2reg_0/clk]
+# connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK]
+# connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins proc_sys_reset_0/slowest_sync_clk]
+# connect_bd_net [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins proc_sys_reset_0/ext_reset_in]
+# connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins axil2reg_0/rst_n]
+# connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins axi_protocol_convert_0/aresetn]
+# connect_bd_net [get_bd_pins axil2reg_0/reg_wr_data] [get_bd_pins led_slice/Din]
+# connect_bd_net [get_bd_pins led_slice/Dout] [get_bd_ports led]
+# connect_bd_intf_net [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins axi_protocol_convert_0/S_AXI]
+# connect_bd_intf_net [get_bd_intf_pins axi_protocol_convert_0/M_AXI] [get_bd_intf_pins axil2reg_0/S_AXIL]
+# regenerate_bd_layout -routing
+# assign_bd_address
+INFO: [BD 41-3093] Triggering Legacy Auto Assign Algorithm
+WARNING: [BD 41-1627] Requested range of <4G> for slave segments </axil2reg_0/s_axil/reg0> exceeds the range of the largest address space in assignment request </processing_system7_0/Data>. Shrinking the initial requested range to <1G>
+Slave segment '/axil2reg_0/s_axil/reg0' is being assigned into address space '/processing_system7_0/Data' at <0x4000_0000 [ 1G ]>.
+# validate_bd_design
+# save_bd_design
+Wrote  : </home/ilya/drec-fpga-intro/problems/2026/09_ps7_axil_led/fpga/design_1/design_1.bd> 
+# add_files -fileset constrs_1 -norecurse fpga.xdc
+# make_wrapper -files [get_files $proj_dir/$bd_name/$bd_name.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Verilog Output written to : /home/ilya/drec-fpga-intro/problems/2026/09_ps7_axil_led/fpga/design_1/synth/design_1.v
+Verilog Output written to : /home/ilya/drec-fpga-intro/problems/2026/09_ps7_axil_led/fpga/design_1/sim/design_1.v
+Verilog Output written to : /home/ilya/drec-fpga-intro/problems/2026/09_ps7_axil_led/fpga/design_1/hdl/design_1_wrapper.v
+# add_files -norecurse $proj_dir/$bd_name/hdl/${bd_name}_wrapper.v
+# set_property top ${bd_name}_wrapper [current_fileset]
+# update_compile_order -fileset sources_1
+INFO: [Common 17-206] Exiting Vivado at Fri May 15 15:32:17 2026...

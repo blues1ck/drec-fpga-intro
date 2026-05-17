@@ -1,0 +1,35 @@
+zynq> mkdir -p /mnt/sd
+zynq> mount /dev/mmcblk0p1 /mnt/sd
+FAT-fs (mmcblk0p1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+zynq> ls /mnt/sd | grep -E "syst_array_drv.ko|test_syst_array.static"
+syst_array_drv.ko
+test_syst_array.static
+zynq> mkdir -p /lib/modules/$(uname -r)
+zynq> rmmod led_drv 2>/dev/null
+zynq> rmmod syst_array_drv 2>/dev/null
+zynq> insmod /mnt/sd/syst_array_drv.ko
+syst_array_drv: loading out-of-tree module taints kernel.
+syst_array_drv 40000000.axil2reg: MMIO at e09c9000
+syst_array_drv 40000000.axil2reg: Systolic array registered
+zynq> cat /proc/misc | grep sa-dev
+124 sa-dev
+zynq> rm -f /dev/sa-dev
+zynq> mknod /dev/sa-dev c 10 124
+zynq> chmod 666 /dev/sa-dev
+zynq> chmod +x /mnt/sd/test_syst_array.static
+zynq> /mnt/sd/test_syst_array.static
+A:
+    0     1     2     3 
+    4     5     6     7 
+    8     9    10    11 
+   12    13    14    15 
+B:
+    0     1     2     3 
+    4     5     6     7 
+    8     9    10    11 
+   12    13    14    15 
+C:
+   56    62    68    74 
+  152   174   196   218 
+  248   286   324   362 
+  344   398   452   506 

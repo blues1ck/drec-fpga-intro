@@ -1,0 +1,7 @@
+insmod /mnt/sd/mod_alloc.ko
+grep allocate /proc/misc
+mknod /dev/allocate c 10 124
+chmod 666 /dev/allocate
+/mnt/sd/test_alloc.static
+rmmod mod_alloc
+cat /proc/modules | grep mod_alloc || echo "mod_alloc unloaded"

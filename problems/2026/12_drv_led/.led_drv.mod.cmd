@@ -1,0 +1,1 @@
+savedcmd_/home/ilya/drec-fpga-intro/problems/2026/12_drv_led/led_drv.mod := printf '%s\n'   led_drv.o | awk '!x[$$0]++ { print("/home/ilya/drec-fpga-intro/problems/2026/12_drv_led/"$$0) }' > /home/ilya/drec-fpga-intro/problems/2026/12_drv_led/led_drv.mod

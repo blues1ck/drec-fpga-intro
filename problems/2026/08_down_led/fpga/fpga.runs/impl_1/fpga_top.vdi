@@ -1,0 +1,83 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Fri May 15 15:23:02 2026
+# Process ID         : 29292
+# Current directory  : /home/ilya/drec-fpga-intro/problems/2026/08_down_led/fpga/fpga.runs/impl_1
+# Command line       : vivado -log fpga_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source fpga_top.tcl -notrace
+# Log file           : /home/ilya/drec-fpga-intro/problems/2026/08_down_led/fpga/fpga.runs/impl_1/fpga_top.vdi
+# Journal file       : /home/ilya/drec-fpga-intro/problems/2026/08_down_led/fpga/fpga.runs/impl_1/vivado.jou
+# Running On         : ilya-B550-GAMING-X-V2
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 22.04.5 LTS
+# Processor Detail   : AMD Ryzen 5 5600G with Radeon Graphics
+# CPU Frequency      : 4441.830 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16622 MB
+# Swap memory        : 0 MB
+# Total Virtual      : 16622 MB
+# Available Virtual  : 11413 MB
+#-----------------------------------------------------------
+source fpga_top.tcl -notrace
+Command: open_checkpoint fpga_top_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1423.469 ; gain = 0.000 ; free physical = 5820 ; free virtual = 10515
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1690.164 ; gain = 0.000 ; free physical = 5592 ; free virtual = 10286
+INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1752.977 ; gain = 0.000 ; free physical = 5520 ; free virtual = 10214
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2305.445 ; gain = 0.000 ; free physical = 5004 ; free virtual = 9699
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2305.445 ; gain = 0.000 ; free physical = 5004 ; free virtual = 9699
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2305.445 ; gain = 0.000 ; free physical = 5004 ; free virtual = 9699
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2305.445 ; gain = 0.000 ; free physical = 5004 ; free virtual = 9699
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2305.445 ; gain = 0.000 ; free physical = 5004 ; free virtual = 9699
+Read Physdb Files: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2305.445 ; gain = 0.000 ; free physical = 5004 ; free virtual = 9699
+Restored from archive | CPU: 0.050000 secs | Memory: 1.167038 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2305.445 ; gain = 5.938 ; free physical = 5004 ; free virtual = 9699
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2305.445 ; gain = 0.000 ; free physical = 5004 ; free virtual = 9699
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.1 (64-bit) build 6140274
+open_checkpoint: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 2305.480 ; gain = 882.012 ; free physical = 5004 ; free virtual = 9699
+Command: write_bitstream -force fpga_top.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/2025.1/Vivado/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./fpga_top.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+23 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 2778.414 ; gain = 472.934 ; free physical = 4508 ; free virtual = 9206
+INFO: [Common 17-206] Exiting Vivado at Fri May 15 15:23:22 2026...

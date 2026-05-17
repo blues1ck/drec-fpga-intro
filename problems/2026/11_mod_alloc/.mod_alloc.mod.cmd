@@ -1,0 +1,1 @@
+savedcmd_/home/ilya/drec-fpga-intro/problems/2026/11_mod_alloc/mod_alloc.mod := printf '%s\n'   mod_alloc.o | awk '!x[$$0]++ { print("/home/ilya/drec-fpga-intro/problems/2026/11_mod_alloc/"$$0) }' > /home/ilya/drec-fpga-intro/problems/2026/11_mod_alloc/mod_alloc.mod

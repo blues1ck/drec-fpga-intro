@@ -1,0 +1,30 @@
+/ {
+	amba_pl: amba_pl {
+		ranges;
+		compatible = "simple-bus";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		firmware-name = "design_1_wrapper.bit.bin";
+		clocking0: clocking0 {
+			compatible = "xlnx,fclk";
+			assigned-clocks = <&clkc 15>;
+			assigned-clock-rates = <50000000>;
+			#clock-cells = <0>;
+			clock-output-names = "fabric_clk";
+			clocks = <&clkc 15>;
+		};
+		axil2reg_0: axil2reg@40000000 {
+			compatible = "xlnx,axil2reg-1.0";
+			status = "okay";
+			clock-names = "clk";
+			xlnx,data-width = <32>;
+			xlnx,ip-name = "axil2reg";
+			xlnx,strb-width = <4>;
+			xlnx,edk-iptype = "PERIPHERAL";
+			xlnx,addr-width = <32>;
+			reg = <0x40000000 0x40000000>;
+			clocks = <&clkc 15>;
+			xlnx,name = "axil2reg_0";
+		};
+	};
+};

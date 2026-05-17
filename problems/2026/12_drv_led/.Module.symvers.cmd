@@ -1,0 +1,1 @@
+savedcmd_/home/ilya/drec-fpga-intro/problems/2026/12_drv_led/Module.symvers :=  scripts/mod/modpost -M -m       -o /home/ilya/drec-fpga-intro/problems/2026/12_drv_led/Module.symvers -T /home/ilya/drec-fpga-intro/problems/2026/12_drv_led/modules.order -i Module.symvers -e 

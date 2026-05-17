@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Fri May 15 15:20:55 2026
+# Process ID         : 25661
+# Current directory  : /home/ilya/drec-fpga-intro/problems/2026/08_down_led/fpga/fpga.runs/synth_1
+# Command line       : vivado -log fpga_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fpga_top.tcl
+# Log file           : /home/ilya/drec-fpga-intro/problems/2026/08_down_led/fpga/fpga.runs/synth_1/fpga_top.vds
+# Journal file       : /home/ilya/drec-fpga-intro/problems/2026/08_down_led/fpga/fpga.runs/synth_1/vivado.jou
+# Running On         : ilya-B550-GAMING-X-V2
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 22.04.5 LTS
+# Processor Detail   : AMD Ryzen 5 5600G with Radeon Graphics
+# CPU Frequency      : 4353.225 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16622 MB
+# Swap memory        : 0 MB
+# Total Virtual      : 16622 MB
+# Available Virtual  : 11429 MB
+#-----------------------------------------------------------
+source fpga_top.tcl -notrace

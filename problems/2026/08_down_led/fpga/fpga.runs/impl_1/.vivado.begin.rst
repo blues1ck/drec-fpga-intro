@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="ilya" Host="ilya-B550-GAMING-X-V2" Pid="20622" HostCore="12" HostMemory="16232968">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="ilya" Host="ilya-B550-GAMING-X-V2" Pid="26060" HostCore="12" HostMemory="16232968">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="ilya" Host="ilya-B550-GAMING-X-V2" Pid="28541" HostCore="12" HostMemory="16232968">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="ilya" Host="ilya-B550-GAMING-X-V2" Pid="29242" HostCore="12" HostMemory="16232968">
+    </Process>
+</ProcessHandle>

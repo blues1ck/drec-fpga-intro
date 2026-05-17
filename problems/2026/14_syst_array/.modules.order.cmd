@@ -1,0 +1,1 @@
+savedcmd_/home/ilya/drec-fpga-intro/problems/2026/14_syst_array/modules.order := {   echo /home/ilya/drec-fpga-intro/problems/2026/14_syst_array/syst_array_drv.o; :; } > /home/ilya/drec-fpga-intro/problems/2026/14_syst_array/modules.order

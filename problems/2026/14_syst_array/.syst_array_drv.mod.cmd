@@ -1,0 +1,1 @@
+savedcmd_/home/ilya/drec-fpga-intro/problems/2026/14_syst_array/syst_array_drv.mod := printf '%s\n'   syst_array_drv.o | awk '!x[$$0]++ { print("/home/ilya/drec-fpga-intro/problems/2026/14_syst_array/"$$0) }' > /home/ilya/drec-fpga-intro/problems/2026/14_syst_array/syst_array_drv.mod

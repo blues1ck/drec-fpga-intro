@@ -1,0 +1,6 @@
+the_ROM_image:
+{
+  [bootloader]/home/ilya/drec-fpga-intro/problems/2026/09_ps7_axil_led/vitis/zynq_platform/export/zynq_platform/sw/boot/fsbl.elf
+  /home/ilya/drec-fpga-intro/problems/2026/14_syst_array/fpga/fpga.runs/impl_1/design_1_wrapper.bit
+  /home/ilya/drec-fpga-intro/problems/2026/09_ps7_axil_led/u-boot-xlnx/build/u-boot.elf
+}
